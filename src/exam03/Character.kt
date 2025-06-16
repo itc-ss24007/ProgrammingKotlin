@@ -6,7 +6,7 @@ import kotlin.random.Random
 abstract class Character(
     val name:String,//
     val maxHp:Int,//HPの最大値
-    val maxMp:Int,//MPの最大値
+    val maxMp:Int//MPの最大値
 
 ) {
     var hp:Int = maxHp //HPの現在値
