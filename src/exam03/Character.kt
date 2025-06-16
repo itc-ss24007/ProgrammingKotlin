@@ -6,12 +6,17 @@ import kotlin.random.Random
 abstract class Character(
     val name:String,//
     val maxHp:Int,//HPの最大値
-    var hp:Int,//HPの現在値
     val maxMp:Int,//MPの最大値
-    var mp:Int,//MPの現在値
-    open val attack:Int,//攻撃力
-    open val defense:Int//防御力
+
 ) {
+    var hp:Int = maxHp //HPの現在値
+    protected set //継承クラスからのみ書き換え可能
+    var mp:Int = maxMp//MPの現在値
+    protected set
+
+    abstract val attack:Int//攻撃力
+    abstract val defense:Int//防御力
+
     open fun attackTo(target:Character):Int {
         val damage = target.attacked(this.attack)
         return damage//与えたダメージ
